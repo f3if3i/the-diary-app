@@ -1,3 +1,2 @@
 # the-diary-app
-Web app development learning
-rest
+Web app development learning!
