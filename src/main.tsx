@@ -2,12 +2,13 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import App from "./App"
-import "./index.css"
 import { ChakraProvider } from "@chakra-ui/react"
 import { Diaries } from "./pages/Diaries"
 import { NewDiary } from "./pages/NewDiary"
 import { Invalid } from "./pages/Invalid"
 import { Diary } from "./pages/Diary"
+
+
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
