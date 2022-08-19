@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { Diary } from "../@types/diary"
 import diariesData from "../utils/diaries.json"
 import { DiaryCard } from "../components/DiaryCard/DiaryCard"
