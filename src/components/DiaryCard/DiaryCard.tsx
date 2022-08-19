@@ -1,4 +1,4 @@
-import { css, jsx } from "@emotion/react"
+import { css } from "@emotion/react"
 import { Text, Heading, Icon } from "@chakra-ui/react"
 import { WiDaySunny, WiCloudy, WiNa } from "react-icons/wi"
 import { HiOutlineGlobeAlt } from "react-icons/hi"
