@@ -10,7 +10,7 @@
             "dinner": "Salad"
         },
         "location": "Tokyo",
-        "weather": "Cloudy"
+        "weather": "cloudy"
     },
     {
         "id": "0002",
@@ -23,7 +23,7 @@
             "dinner": "Salad"
         },
         "location": "Tokyo",
-        "weather": "Cloudy"
+        "weather": "sunny"
     },
     {
         "id": "0003",
@@ -36,7 +36,7 @@
             "dinner": "Salad"
         },
         "location": "Tokyo",
-        "weather": "Cloudy"
+        "weather": "cloudy"
     },
     {
         "id": "0004",
@@ -49,7 +49,7 @@
             "dinner": "Salad"
         },
         "location": "Tokyo",
-        "weather": "Cloudy"
+        "weather": "sunny"
     },
     {
         "id": "0005",
@@ -62,7 +62,7 @@
             "dinner": "Salad"
         },
         "location": "Tokyo",
-        "weather": "Cloudy"
+        "weather": "cloudy"
     },
     {
         "id": "0006",
@@ -75,6 +75,6 @@
             "dinner": "Salad"
         },
         "location": "Tokyo",
-        "weather": "Cloudy"
+        "weather": "sunny"
     }
 ]

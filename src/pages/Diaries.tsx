@@ -1,23 +1,44 @@
-import { Link, Outlet } from "react-router-dom"
+import { Link } from "react-router-dom"
+import { Diary } from "../@types/diary"
+import diariesData from "../utils/diaries.json"
+import { DiaryCard } from "../components/DiaryCard/DiaryCard"
+import { css } from "@emotion/react"
 
 export const Diaries = () => {
-    const diaries: number[] = [0, 1, 2, 3, 4, 5]
     return (
         <div>
-            <div>DiaryList</div>
-            <div>
-                {diaries.map((diary: number): React.ReactNode => {
+            <div>Diaries</div>
+            <div css={styles.diariesContainer}>
+                {diariesData.map((diary: Diary): React.ReactNode => {
                     return <Link
-                        to={`/diaries/${diary}`}
-                        key={diary}
+                        to={`/diary/${diary.id}`}
+                        key={diary.id}
                     >
-                        {diary}
+                        <DiaryCard
+                            id={diary.id}
+                            title={diary.title}
+                            content={diary.content}
+                            mood={diary.mood}
+                            location={diary.location}
+                            weather={diary.weather}
+                            breakfast={diary.meals?.breakfast}
+                            lunch={diary.meals?.lunch}
+                            dinner={diary.meals?.dinner} />
+
                     </Link>
                 })}
             </div>
 
-            <Outlet />
+            {/* <Outlet /> */}
 
         </div>
     )
+}
+
+const styles = {
+    diariesContainer: css({
+        display: "flex",
+        flexDirection: "column",
+        gap: "30px"
+    })
 }

@@ -16,9 +16,11 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<App />}>
-                        <Route path="diaries" element={<Diaries />}>
+                        <Route path="diaries" element={<Diaries />} />
+                        <Route path="diary" >
                             <Route path=":diaryId" element={<Diary />} />
                         </Route>
+
                         <Route path="new_diary" element={<NewDiary />} />
                         <Route path="*" element={<Invalid />} />
                     </Route>
