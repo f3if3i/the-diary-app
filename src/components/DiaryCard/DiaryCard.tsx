@@ -1,7 +1,8 @@
 import { css } from "@emotion/react"
 import { Text, Heading, Icon } from "@chakra-ui/react"
-import { WiDaySunny, WiCloudy, WiNa } from "react-icons/wi"
 import { HiOutlineGlobeAlt } from "react-icons/hi"
+import { WEATHER_ICON } from "../../constants/weather"
+import { MOOD } from "../../constants/mood"
 
 type DiaryCardProps = {
     title: string,
@@ -26,12 +27,13 @@ export const DiaryCard = ({ id, title, content, image, mood, location, weather, 
                 <Heading as="h2" size="2xl" mb="20px" noOfLines={1}>
                     {title}
                 </Heading>
-                <Text fontSize="xl">{content}</Text>
+                <Text fontSize="xl" noOfLines={10} >{content}</Text>
 
             </div>
             <div css={styles.stateContainer} >
                 <GeoInfo location={location} weather={weather} />
                 <Meals breakfast={breakfast} lunch={lunch} dinner={dinner} />
+                <Mood mood={mood} />
             </div>
 
         </div >
@@ -60,15 +62,9 @@ const GeoInfo = ({ location, weather }: GeoInfoProps): JSX.Element => {
 
 // TODO: use object to refactor
 const WeatherIcon = ({ weather }: { weather: string }): JSX.Element => {
-    switch (weather) {
-        case "Sunny":
-            return <Icon size="36px" color="black.500" as={WiDaySunny} />
-        case "Cloudy":
-            return <Icon w={10} h={10} color="black.500" as={WiCloudy} />
-        default:
-            return <Icon size="36px" color="black.500" as={WiNa} />
-    }
-
+    return (
+        <Icon w={10} h={10} color="black.500" as={WEATHER_ICON[weather]} />
+    )
 }
 
 type MealsProps = {
@@ -76,6 +72,8 @@ type MealsProps = {
     lunch?: string,
     dinner?: string
 }
+
+// TODO: breakfast, lunch, dinnerを一つのオブジェクトにまとめた方がいいかも
 const Meals = ({ breakfast, lunch, dinner }: MealsProps): JSX.Element | null => {
     if (breakfast || lunch || dinner) {
         return (
@@ -92,11 +90,24 @@ const Meals = ({ breakfast, lunch, dinner }: MealsProps): JSX.Element | null => 
 
 }
 
+const Mood = ({ mood }: { mood: string }): JSX.Element => {
+
+    return (
+        <div>
+            <Heading as="h5" size="lg" mb="20px" noOfLines={1}>Mood</Heading>
+            <Text fontSize="2xl" noOfLines={3}>{MOOD[mood]}</Text>
+        </div>
+    )
+
+}
+
 const styles = {
     cardContainer: css({
         display: "flex",
         gap: "50px",
         width: "100%",
+        minWidth: "760px",
+        maxHeight: "560",
         padding: "50px",
         borderRadius: "28px",
         background: "linear-gradient(339.7deg, rgba(57, 136, 254, 0.034) -10.18%, rgba(21, 102, 223, 0) 38.49%), rgba(244, 244, 244, 0.54)"
@@ -122,6 +133,7 @@ const styles = {
         gap: "5px"
     }),
     mealContainer: css({
+        marginBottom: "30px"
     })
 
 }

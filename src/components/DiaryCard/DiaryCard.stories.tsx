@@ -31,6 +31,6 @@ export const Primary: ComponentStory<typeof DiaryCard> = () =>
         lunch="Indian curry"
         dinner="Salad"
         location="Tokyo"
-        weather="Cloudy"
+        weather="cloudy"
     />
 
