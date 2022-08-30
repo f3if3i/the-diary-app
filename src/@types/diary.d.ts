@@ -5,6 +5,7 @@ export type Meals = {
 }
 
 export interface Diary {
+    datetime: string
     id: string,
     title: string,
     content: string,
