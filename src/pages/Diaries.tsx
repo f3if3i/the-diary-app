@@ -26,8 +26,8 @@ export const Diaries = () => {
                                 breakfast={diary.meals?.breakfast}
                                 lunch={diary.meals?.lunch}
                                 dinner={diary.meals?.dinner}
-                                date={diary.datetime} />
-
+                                date={diary.datetime}
+                            />
                         </Link>
                     })}
                 </div>
@@ -35,9 +35,6 @@ export const Diaries = () => {
                     <DiaryFilter />
                 </div>
             </div>
-
-            {/* <Outlet /> */}
-
         </Layout>
     )
 }
