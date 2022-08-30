@@ -1,6 +1,6 @@
 import { css } from "@emotion/react"
 import { Text, Heading, Icon } from "@chakra-ui/react"
-import { HiOutlineGlobeAlt } from "react-icons/hi"
+import { HiOutlineGlobeAlt, HiOutlineCalendar } from "react-icons/hi"
 import { WEATHER_ICON } from "../../constants/weather"
 import { MOOD } from "../../constants/mood"
 
@@ -15,11 +15,12 @@ type DiaryCardProps = {
     lunch?: string,
     dinner?: string
     className?: string,
-    id: string
+    id: string,
+    date: string
 
 }
 
-export const DiaryCard = ({ id, title, content, image, mood, location, weather, breakfast, lunch, dinner, className }: DiaryCardProps): JSX.Element => {
+export const DiaryCard = ({ id, title, content, image, mood, location, weather, breakfast, lunch, dinner, className, date }: DiaryCardProps): JSX.Element => {
 
     return (
         <div css={styles.cardContainer}>
@@ -31,7 +32,7 @@ export const DiaryCard = ({ id, title, content, image, mood, location, weather, 
 
             </div>
             <div css={styles.stateContainer} >
-                <GeoInfo location={location} weather={weather} />
+                <GeoInfo location={location} weather={weather} date={date} />
                 <Meals breakfast={breakfast} lunch={lunch} dinner={dinner} />
                 <Mood mood={mood} />
             </div>
@@ -43,10 +44,11 @@ export const DiaryCard = ({ id, title, content, image, mood, location, weather, 
 
 type GeoInfoProps = {
     location: string,
-    weather: string
+    weather: string,
+    date: string,
 }
 
-const GeoInfo = ({ location, weather }: GeoInfoProps): JSX.Element => {
+const GeoInfo = ({ location, weather, date }: GeoInfoProps): JSX.Element => {
 
     return (
         <div css={styles.geoContainer} >
@@ -54,9 +56,15 @@ const GeoInfo = ({ location, weather }: GeoInfoProps): JSX.Element => {
             <Text fontSize="lg">{location}</Text>
             <WeatherIcon weather={weather} />
             <Text fontSize="lg">{weather}</Text>
+            <Icon mt="4px" ml="6px" w="24px" h="24px" color="black.500" as={HiOutlineCalendar} />
+            <Text mt="4px" fontSize="lg">{formatDate(date)}</Text>
         </div>
     )
 
+}
+
+const formatDate = (date: string) => {
+    return date.split("T")[0].replaceAll("-", "/")
 }
 
 
@@ -120,9 +128,8 @@ const styles = {
     }),
     geoContainer: css({
         display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gridTemplateRows: "40px 40px",
-        gao: "18px",
+        gridTemplateColumns: "48px 1fr",
+        gridTemplateRows: "40px 40px 40px",
         justifyContent: "center",
         alignItems: "center",
         marginBottom: "30px"
@@ -130,7 +137,6 @@ const styles = {
     geoContent: css({
         display: "flex",
         alignItems: "center",
-        gap: "5px"
     }),
     mealContainer: css({
         marginBottom: "30px"

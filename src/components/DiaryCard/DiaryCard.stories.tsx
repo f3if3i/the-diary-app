@@ -32,5 +32,6 @@ export const Primary: ComponentStory<typeof DiaryCard> = () =>
         dinner="Salad"
         location="Tokyo"
         weather="cloudy"
+        date="2022/03/23"
     />
 

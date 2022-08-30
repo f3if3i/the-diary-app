@@ -25,7 +25,8 @@ export const Diaries = () => {
                                 weather={diary.weather}
                                 breakfast={diary.meals?.breakfast}
                                 lunch={diary.meals?.lunch}
-                                dinner={diary.meals?.dinner} />
+                                dinner={diary.meals?.dinner}
+                                date={diary.datetime} />
 
                         </Link>
                     })}
