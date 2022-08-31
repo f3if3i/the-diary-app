@@ -1,6 +1,6 @@
 import { DiaryFilter } from "./DiaryFilter"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-// import { }
+import { useState } from "react"
 
 export default {
     title: "Component Library/DiaryFilter",
@@ -8,7 +8,6 @@ export default {
     decorators: [
         (Story) => (
             <div style={{
-                // margin: "3em",
                 width: "330px"
             }}>
                 <Story />
@@ -21,6 +20,9 @@ export default {
 } as ComponentMeta<typeof DiaryFilter>
 
 
-export const Primary: ComponentStory<typeof DiaryFilter> = () =>
-    <DiaryFilter
-    />
+export const Primary: ComponentStory<typeof DiaryFilter> = () => {
+    const [isSelected, setIsSelected] = useState<number>(1)
+
+    return (
+        <DiaryFilter setSelectedMonth={setIsSelected} selectedMonth={isSelected} />)
+}
