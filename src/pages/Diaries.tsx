@@ -7,6 +7,7 @@ import { Layout } from "../components/layout/Layout"
 import { DiaryFilter } from "../components/DiaryFilter/DiaryFilter"
 import { useEffect, useState } from "react"
 import { Heading, Text } from "@chakra-ui/react"
+import { NewDiaryButton } from "../components/NewDiaryButton/NewDiaryButton"
 
 export const Diaries = () => {
     const [selectedMonth, setSelectedMonth] = useState<number>(1)
@@ -44,6 +45,7 @@ export const Diaries = () => {
                 </div>
                 <div css={styles.controlContainer}>
                     <DiaryFilter selectedMonth={selectedMonth} setSelectedMonth={setSelectedMonth} />
+                    <Link to={"/new_diary"} ><NewDiaryButton /></Link>
                 </div>
             </div>
         </Layout>
@@ -75,6 +77,10 @@ const styles = {
         gap: "30px"
     }),
     controlContainer: css({
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "48px"
 
     }),
     emptyCardContainer: css({
