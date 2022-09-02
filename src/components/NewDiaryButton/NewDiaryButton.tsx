@@ -8,6 +8,7 @@ export const NewDiaryButton = (): JSX.Element => {
 
     return (
         <div css={styles(onHover).container}
+            // TODO: use css to refactor the hover effect
             onMouseEnter={() => setOnHover(true)}
             onMouseLeave={() => setOnHover(false)}>
             <Box
@@ -19,7 +20,7 @@ export const NewDiaryButton = (): JSX.Element => {
                 transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
             >
                 <div css={styles(onHover).iconContainer}><Icon w={6} h={6} as={HiPencilAlt} /></div>
-                <Heading size="md">Create new diary</Heading>
+                <Heading borderBottom="2px" size="md">Create new diary</Heading>
             </Box>
         </div >
 
