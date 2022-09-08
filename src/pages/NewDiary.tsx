@@ -4,6 +4,11 @@ import { Formik, Field } from "formik"
 import * as Yup from "yup"
 import { Layout } from "../components/layout/Layout"
 
+type FormValueType = {
+    title: string,
+    content: string
+}
+
 export const NewDiary = () => {
 
 
@@ -21,7 +26,7 @@ export const NewDiary = () => {
             .required("Required"),
     })
 
-    const onSubmit = (values: any) => {
+    const onSubmit = (values: FormValueType) => {
         setTimeout(() => {
             alert(JSON.stringify(values, null, 2))
         }, 400)
