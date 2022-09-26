@@ -1,26 +1,21 @@
 import { Heading } from "@chakra-ui/react"
 import { css } from "@emotion/react"
-import { Dispatch, SetStateAction } from "react"
 import { MonthButton } from "../MonthButton/MonthButton"
 import { createArray } from "../../utils/createArray"
 
 type DiaryFilterProps = {
     selectedMonth: number
-    setSelectedMonth: Dispatch<SetStateAction<number>>
+    onChange: (month: number) => void
 }
 
-export const DiaryFilter = ({ setSelectedMonth, selectedMonth }: DiaryFilterProps): JSX.Element => {
-    const handleSelect = (month: number) => {
-        setSelectedMonth(month)
-    }
-
+export const DiaryFilter = ({ onChange, selectedMonth }: DiaryFilterProps): JSX.Element => {
     return <div css={styles.container}>
         <Heading size="lg" mb="30px">2022</Heading>
         <form css={styles.buttonGroupContainer}>
             {createArray(12, 1).map(month => {
                 return (
                     <MonthButton key={month} month={month} isSelected={month === selectedMonth}
-                        onChange={(e) => handleSelect(Number(e.target.value))} />
+                        onChange={(e) => onChange(Number(e.target.value))} />
                 )
             })}
         </form>
