@@ -3,7 +3,7 @@ interface Mood {
 }
 
 export const MOOD: Mood = {
-    chill: "&#128521;",
+    chill: "😉",
     happy: "😆",
     sad: "😞",
     love: "😍",
