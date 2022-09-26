@@ -12,4 +12,13 @@ export const WEATHER_ICON: WeatherIcon =
     na: WiNa,
 }
 
+interface Weather {
+    [weatherName: string]: string
+}
+
+export const WEATHER: Weather = {
+    cloudy: "Cloudy",
+    sunny: "Sunny"
+}
+
 
