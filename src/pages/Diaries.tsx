@@ -44,7 +44,7 @@ export const Diaries = () => {
                     }) : <EmptyCard />}
                 </div>
                 <div css={styles.controlContainer}>
-                    <DiaryFilter selectedMonth={selectedMonth} setSelectedMonth={setSelectedMonth} />
+                    <DiaryFilter selectedMonth={selectedMonth} onChange={setSelectedMonth} />
                     <Link to={"/new_diary"} ><NewDiaryButton /></Link>
                 </div>
             </div>
