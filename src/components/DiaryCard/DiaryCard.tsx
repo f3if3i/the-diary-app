@@ -69,7 +69,7 @@ const formatDate = (date: string) => {
 
 
 // TODO: use object to refactor
-const WeatherIcon = ({ weather }: { weather: string }): JSX.Element => {
+const WeatherIcon = ({ weather }: { weather: keyof typeof WEATHER_ICON }): JSX.Element => {
     return (
         <Icon w={10} h={10} color="black.500" as={WEATHER_ICON[weather]} />
     )
@@ -98,7 +98,7 @@ const Meals = ({ breakfast, lunch, dinner }: MealsProps): JSX.Element | null => 
 
 }
 
-const Mood = ({ mood }: { mood: string }): JSX.Element => {
+const Mood = ({ mood }: { mood: keyof typeof MOOD }): JSX.Element => {
 
     return (
         <div>
