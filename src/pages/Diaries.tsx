@@ -5,25 +5,21 @@ import { DiaryCard } from "../components/DiaryCard/DiaryCard"
 import { css } from "@emotion/react"
 import { Layout } from "../components/layout/Layout"
 import { DiaryFilter } from "../components/DiaryFilter/DiaryFilter"
-import { useEffect, useState } from "react"
+import { useMemo, useState } from "react"
 import { Heading, Text } from "@chakra-ui/react"
 import { NewDiaryButton } from "../components/NewDiaryButton/NewDiaryButton"
 
 export const Diaries = () => {
     const [selectedMonth, setSelectedMonth] = useState<number>(1)
-    const diariesDisplay = diaryFiltering(diariesData, selectedMonth)
-    const [diaries, setDiaries] = useState(diariesDisplay)
 
-    useEffect(() => {
-        const diariesUpdated = diaryFiltering(diariesData, selectedMonth)
-        setDiaries(diariesUpdated)
-    }, [selectedMonth])
+    // diaryFilteringの結果を保持する。保持した内容が同じ場合は再計算をせず保存した値を再利用する
+    const diariesDisplay = useMemo(() => diaryFiltering(diariesData, selectedMonth), [selectedMonth])
 
     return (
         <Layout>
             <div css={styles.container}>
                 <div css={styles.diariesContainer}>
-                    {diaries.length > 0 ? diaries.map((diary: Diary): React.ReactNode => {
+                    {diariesDisplay.length > 0 ? diariesDisplay.map((diary: Diary): React.ReactNode => {
                         return <Link
                             to={`/diary/${diary.id}`}
                             key={diary.id}
